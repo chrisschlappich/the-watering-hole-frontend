@@ -58,7 +58,16 @@ function App(): React.JSX.Element {
       <Tab.Navigator
         screenOptions={({ navigation }) => ({
           header: () => <CustomHeader navigation={navigation} />, // Add the custom header
-        })}>
+          tabBarStyle: {
+            backgroundColor: '#f8f9fa', // Background color of the tab bar
+            shadowColor: '#000', // Shadow color
+            shadowOffset: { width: 0, height: -2 }, // Shadow direction (above the tab bar)
+            shadowOpacity: 0.2, // Shadow transparency
+            shadowRadius: 4, // Shadow blur radius
+            elevation: 50, // Android elevation
+          },
+        })
+        }>
         <Tab.Screen name="Feed" component={FeedScreen} />
         <Tab.Screen name="Discover" component={DiscoverScreen} />
         <Tab.Screen name="Check-In" component={CheckInScreen} />
@@ -75,14 +84,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   header: {
-    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#f8f9fa',
-    paddingVertical: 3,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ddd',
-  },
+    paddingVertical: 2,
+    shadowColor: '#000', // Shadow color (black)
+    shadowOffset: { width: 0, height: 2 }, // Shadow direction
+    shadowOpacity: 0.2, // Shadow transparency
+    shadowRadius: 4, // Shadow blur radius
+    elevation: 5, // Android elevation
+    }, 
   logo: {
     width: 190,
     height: 55,
